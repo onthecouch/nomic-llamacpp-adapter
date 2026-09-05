@@ -3,7 +3,7 @@
 A small compatibility layer for using asymmetric Nomic embedding models with
 OpenAI-compatible clients and `llama-server`.
 
-Nomic Embed Text v2 expects different literal prefixes for search queries and
+Nomic Embed Text (v1.5 and v2) expects different literal prefixes for search queries and
 indexed documents:
 
 ```text
@@ -96,7 +96,7 @@ address to Git.
     "search": {
       "enabled": true,
       "provider": "openai-compatible",
-      "model": "nomic-embed-text-v2-moe",
+      "model": "nomic-embed-text-v1.5",
       "remote": {
         "baseUrl": "http://<ADAPTER_ADDRESS>:8081/v1"
       },

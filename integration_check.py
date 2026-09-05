@@ -21,7 +21,7 @@ adapter = os.environ.get(
 upstream = os.environ.get(
     "UPSTREAM_EMBEDDINGS_URL", "http://127.0.0.1:8082/v1/embeddings"
 )
-model = os.environ.get("EMBEDDING_MODEL", "nomic-embed-text-v2-moe")
+model = os.environ.get("EMBEDDING_MODEL", "nomic-embed-text-v1.5")
 
 query_via_adapter = embed(
     adapter,

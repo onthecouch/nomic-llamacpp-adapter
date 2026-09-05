@@ -6,7 +6,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/opt/llama.cpp
-ExecStart=/opt/llama.cpp/build/bin/llama-server --model /opt/llama.cpp/user-models/nomic-embed-text-v2-moe.Q6_K.gguf --embedding --host 127.0.0.1 --port 8082 --ctx-size 512 --threads 4
+ExecStart=/opt/llama.cpp/build/bin/llama-server --model /opt/llama.cpp/user-models/nomic-embed-text-v1.5.gguf --embedding --host 127.0.0.1 --port 8082 --ctx-size 2048 -b 2048 -ub 2048 --threads 4
 Restart=on-failure
 RestartSec=5
 StandardOutput=append:/var/log/llama.cpp/embedding.log
