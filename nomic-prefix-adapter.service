@@ -1,0 +1,28 @@
+[Unit]
+Description=Nomic embedding prefix adapter for llama.cpp
+After=network-online.target tailscaled.service llama-embedding.service
+Wants=network-online.target
+Requires=llama-embedding.service
+
+[Service]
+Type=simple
+DynamicUser=true
+Environment=ADAPTER_BIND_HOST=127.0.0.1
+Environment=ADAPTER_BIND_PORT=8081
+Environment=ADAPTER_UPSTREAM=http://127.0.0.1:8082
+EnvironmentFile=-/etc/default/nomic-prefix-adapter
+ExecStart=/usr/bin/python3 /opt/llama.cpp/nomic-prefix-adapter.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target
